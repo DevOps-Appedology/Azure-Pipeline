@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Set the Git repository URL and local folder path
+repository_url="git@github.com:Anas-Sardar/dotnet-practice.git"
+local_folder="C:\automatic\Dev"
+stag_folder="C:\automatic\Stag"  # Set the destination folder
+
+# Navigate to the local folder
+cd "$local_folder"
+
+# Check if the local repository exists, if not, clone it
+if [ ! -d "$local_folder/.git" ]; then
+    git clone "$repository_url" "$local_folder"
+else
+    # If the local repository already exists, pull the latest changes
+    git -C "$local_folder" pull
+fi
+
+# Copy the Dev folder to the Stag folder
+xcopy "$local_folder" "$stag_folder" /E /I /H /Y
+
+
+
+Yes!!!! We have achieved!!!
+bhennsss ki taang...!!!
